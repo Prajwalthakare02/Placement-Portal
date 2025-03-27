@@ -1,107 +1,87 @@
-# Placement Portal
+# AI-Enabled Placement Portal
 
-A full-stack placement portal application with Django backend and React frontend.
+A comprehensive placement portal with AI features to help students prepare for and find their dream jobs. The portal includes features like resume parsing, placement prediction, and an AI chatbot for interview preparation.
 
 ## Features
 
-- User Authentication (Students, Recruiters, Admins)
-- Job Posting and Management
-- Job Applications
-- Profile Management
-- Application Status Tracking
-- Job Categories
-- Search and Filter Jobs
+- **AI-Powered Placement Prediction**: Uses machine learning to predict placement chances based on student profiles
+- **Resume Parsing**: Automatically extracts information from uploaded resumes
+- **Interview Preparation Chatbot**: AI-powered chatbot for company-specific interview preparation
+- **Job Listings**: Browse and apply for jobs from various companies
+- **Profile Management**: Students can manage their profiles and track applications
+- **Admin Dashboard**: For managing companies, job postings, and applications
 
-## Backend Setup
+## Tech Stack
 
+### Frontend
+- React.js
+- Redux for state management
+- Tailwind CSS for styling
+- Vite for build tooling
+
+### Backend
+- Django
+- Django REST Framework
+- Machine Learning (scikit-learn, XGBoost)
+- Natural Language Processing for resume parsing
+
+## Setup Instructions
+
+### Backend Setup
 1. Create a virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: .\venv\Scripts\activate
-```
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
 2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Set up environment variables:
-Create a `.env` file in the root directory with:
+3. Run migrations:
+   ```bash
+   python manage.py migrate
+   ```
+
+4. Start the server:
+   ```bash
+   python manage.py runserver
+   ```
+
+### Frontend Setup
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
 ```
 DEBUG=True
-SECRET_KEY=your-secret-key
-EMAIL_HOST_USER=your-email@gmail.com
-EMAIL_HOST_PASSWORD=your-app-specific-password
+SECRET_KEY=your_secret_key
+DATABASE_URL=your_database_url
 ```
-
-4. Run migrations:
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
-5. Create a superuser:
-```bash
-python manage.py createsuperuser
-```
-
-6. Run the development server:
-```bash
-python manage.py runserver
-```
-
-The backend API will be available at `http://localhost:8000/api/`
-
-## API Endpoints
-
-### Authentication
-- POST `/api/users/` - Register a new user
-- GET `/api/users/me/` - Get current user profile
-- PUT/PATCH `/api/users/me/` - Update current user profile
-
-### Jobs
-- GET `/api/jobs/` - List all jobs
-- POST `/api/jobs/` - Create a new job (Recruiters only)
-- GET `/api/jobs/{id}/` - Get job details
-- PUT/PATCH `/api/jobs/{id}/` - Update job (Recruiters only)
-- DELETE `/api/jobs/{id}/` - Delete job (Recruiters only)
-
-### Categories
-- GET `/api/categories/` - List all categories
-- POST `/api/categories/` - Create a new category (Admin only)
-- GET `/api/categories/{id}/` - Get category details
-- PUT/PATCH `/api/categories/{id}/` - Update category (Admin only)
-- DELETE `/api/categories/{id}/` - Delete category (Admin only)
-
-### Applications
-- GET `/api/applications/` - List user's applications
-- POST `/api/applications/` - Submit a new application
-- GET `/api/applications/{id}/` - Get application details
-- POST `/api/applications/{id}/update_status/` - Update application status (Recruiters only)
-
-## Frontend Setup
-
-1. Navigate to the frontend directory:
-```bash
-cd frontend
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Run the development server:
-```bash
-npm run dev
-```
-
-The frontend will be available at `http://localhost:5173`
 
 ## Contributing
 
 1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a new Pull Request 
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details. 
