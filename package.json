@@ -1,0 +1,12 @@
+{
+  "name": "placement-portal",
+  "version": "1.0.0",
+  "description": "Placement Portal with Django Backend and React Frontend",
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start:backend": "python manage.py runserver",
+    "start": "concurrently \"npm run start:backend\" \"npm run dev\""
+  },
+  "private": true
+} 
